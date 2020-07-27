@@ -1,16 +1,19 @@
-def find_item_by_name_in_collection(name, collection)
-  # Implement me first!
-  #
-  # Consult README for inputs and outputs
+require 'pry'
 
+def find_item_by_name_in_collection(name, collection)
+  collection.each do |item_info|
+    item_info.each{|key, value| return item_info if value == name}
+  # binding.pry
+  end
+  nil
 end
 
 def consolidate_cart(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This returns a new Array that represents the cart. Don't merely
-  # change `cart` (i.e. mutate) it. It's easier to return a new thing.
-
+  single = cart.uniq
+  single.each do|info_hash| 
+    info_hash[:count] = cart.count{|x| x == info_hash} 
+    # binding.pry
+  end
 end
 
 
